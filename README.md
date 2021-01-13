@@ -1,62 +1,68 @@
-# Fake commit history
+# Fake GitHub Commits
 
-A command-line tool to fake your commit history ¯\\_(ツ)_/¯.
+A command-line tool to fake your GitHub activity ¯\\_(ツ)_/¯.
 
-Does your profile look like you have stopped coding at all? 
-No worries, this CLI is gonna help you!
+Does your profile look like you have stopped coding at all?
+No worries, this script will help you!
 
 <img src="https://dl.dropboxusercontent.com/s/q2iinti6v0zbhzs/contributions.gif?dl=0" alt="How it works" />
 
-## Installation
+## How To Use
+
+1. Make sure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node.js](https://nodejs.org/en/download/) installed on your machine.
+2. Create a new repository:
+   ```shell script
+   mkdir my-history
+   cd my-history
+   git init
+   ```
+3. Generate your commits:
+   ```shell script
+   npx fake-git-history
+   ```
+   It will generate changes to the file for every day within the last year (0-3 commits per day).
+4. Create [a private repository](https://github.com/new) called `my-history`
+   and push your fake history to the remote repository:
+   ```shell script 
+   git remote add origin git@github.com:<USERNAME>/my-history.git 
+   git branch -M main
+   git push -u origin main
+   ```
+
+Done! Go take a look at your GitHub profile 😉
+
+## Customizations
+
+### `--commitsPerDay`
+
+Specify how many commits should be created for every single day.
+Default is `0,3` which means it will randomly make from 0 to 3 commits a day. Example:
 
 ```shell script
-yarn global add fake-git-history
+npx fake-git-history --commitsPerDay "0,5"
 ```
 
-## Usage
+### `--workdaysOnly`
+
+Use it if you don't want to commit on weekends. Example:
 
 ```shell script
-mkdir my-fake-history
-cd my-fake-history
-git init
-
-# Generate commit history for a specific date range.
-# The date must be in `YY/MM/DD` format. Example `2019/01/01`
-fake-git-history --startDate <YY/MM/DD> --endDate <YY/MM/DD>
+npx fake-git-history --workdaysOnly
 ```
 
-Then create [a private repository](https://github.com/new) on GitHub,
-add follow the instructions to push the history to the remote repository.
+### `--startDate` and `--endDate`
+
+By default, the script generates GitHub commits for every day within the last year.
+If you want to generate activity for a specific dates, then use these options:
 
 ```shell script
-git remote add origin git@github.com:<USERNAME>/my-fake-history.git
-git push -u origin master
+npx fake-git-history --startDate "2020/09/01" --endDate "2020/09/30"
 ```
 
-Done! Go take a look at your contributions graph.
+## PS 
 
-## More examples
+It is something I wrote as a joke, so don't take it seriously. 
 
-Specify how many commits should be created for every single day. 
-Default is `0,3` which means it will randomly create from 0 to 3 commit messages for a day.
+I don't encourage people to cheat. But if anybody is judging your professional skills by the graph at your GitHub profile, they deserve to see a rich graph 🤓
 
-```shell script
-fake-git-history --commitsPerDay "1,5" -s <YY/MM/DD> -e <YY/MM/DD>
-```
-
-Generate commit history for weekdays only.
-
-```shell script
-fake-git-history --workdaysOnly -s <YY/MM/DD> -e <YY/MM/DD>
-```
-
-## CLI
-
-- `--startDate` or `-s` Start date in YY/MM/DD format.
-- `--endDate`, `-e` End date in YY/MM/DD format.
-- `--workdaysOnly`, `-w` Skip weekends.
-- `--commitsPerDay`, `-c` The number of commits to generate for every single day.
-
-## P.S.
-
-It is something I wrote as a joke, so don't take it seriously.
+Enjoy using this tool? I would appreciate it if you [buy me a cup of coffee](https://www.buymeacoffee.com/artiebits).
