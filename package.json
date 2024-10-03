@@ -1,7 +1,7 @@
 {
   "name": "fake-git-history",
-  "version": "1.4.0",
-  "description": "A command-line tool to generate your git activity",
+  "version": "1.8.0",
+  "description": "A command-line tool to generate your GitHub activity graph.",
   "bin": "src/cli.js",
   "main": "src/cli.js",
   "files": [
@@ -9,12 +9,11 @@
     "src/index.js"
   ],
   "repository": "git@github.com:artiebits/fake-git-history.git",
-  "author": "artiebits <artur.khusaenov@gmail.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
     "start": "node src/cli.js",
-    "lint": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+    "lint": "prettier --write 'src/**/*.js'"
   },
   "husky": {
     "hooks": {
